@@ -1,0 +1,20 @@
+Configure & install pptpd VPN service on Ubuntu 12.04 LTS
+Have been tested on a newly installed AWS EC2 micro with official AIM
+
+Backgroud Story
+
+背景故事：欢迎前往本属于你的，墙外的自由天际
+
+我朝GFW威武，斯巴达时GMAIL都不稳定，神马自由门、赛风、Goagent几乎都挂了。而免费VPN跪求，连搜索都是一大麻烦，更别说找到以后的限时限量。最令我痛苦的不是不能翻墙出去呼吸非CCTV的有毒自由空气，而是GOOGLE搜索结果，无论何种性质一律打开缓慢，令人怀疑GFW是否已搬到天津半人工运行。
+
+发扬南泥湾精神，自己动手搭建一个专属VPN服务器：高速、稳定、免费、专属VPN
+
+条件：已申请到Amazon AWS Free Tier Service 得到micro 主机一枚，可以SSH到该主机上。
+申请和配置方法具体方法请自行Google, 有需要的了解的俺随后补上。
+
+不用再像我一样关心路由表的参数，不用再反复和LOG较劲儿，只要记得把AWS Console中Secuirty Group的TPC1273和22端口打开即可。
+
+在全新安装Ubuntu 12.04 LTS AIM上以root身份运行以下脚本即可。希望深入的可以逐行运行逐行man ：）
+
+For more reading, please visit:
+http://sowact.com/install-and-config-pptpd-vpn-service-on-ubuntu-12-04-lts-for-dummies/
