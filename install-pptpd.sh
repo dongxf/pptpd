@@ -26,7 +26,7 @@ echo "[ Install packages... ]"
 #rpmbuild --rebuild pptpd-1.3.4-1.fc12.src.rpm
 #rpm -i ../rpmbuild/RPMS/i686/pptpd-1.3.4-1.amzn1.i386.rpm
 #apt-get update
-apt-get -y install chkconfig pptpd
+apt-get -y install chkconfig pptpd ppp
 
 echo "[ Allocate ip to vpn clients... ]"
 sed -i 's/^logwtmp/#logwtmp/g' /etc/pptpd.conf
@@ -48,6 +48,11 @@ if [ "$1" != "" ]
 then pass=$1
 fi
 echo "vpn pptpd ${pass} *" >> /etc/ppp/chap-secrets
+echo "dongxy pptpd luckyhouse123 *" >> /etc/ppp/chap-secrets
+echo "dongxf pptpd luckyhouse123 *" >> /etc/ppp/chap-secrets
+echo "x201i pptpd luckyhouse123 *" >> /etc/ppp/chap-secrets
+echo "carify pptpd forevereedom *" >> /etc/ppp/chap-secrets
+
 
 echo "[ Change iptables... ]"
 src_ip=`ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk 'NR==1 { print $1}'`
@@ -56,7 +61,7 @@ iptables -A FORWARD -p tcp --syn -s 10.64.64.0/24 -j TCPMSS --set-mss 1356
 iptables-save > /etc/iptables_up.rules
 echo "pre-up iptables-restore < /etc/iptables_up.rules" >> /etc/network/interfaces
 
-echo "Enable and start pptpd service ... ]"
+echo "[ Enable and start pptpd service ... ]"
 #chkconfig iptables on
 chkconfig pptpd on
 service pptpd start
