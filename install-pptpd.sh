@@ -48,10 +48,10 @@ if [ "$1" != "" ]
 then pass=$1
 fi
 echo "vpn pptpd ${pass} *" >> /etc/ppp/chap-secrets
-echo "dongxy pptpd luckyhouse123 *" >> /etc/ppp/chap-secrets
-echo "dongxf pptpd luckyhouse123 *" >> /etc/ppp/chap-secrets
-echo "x201i pptpd luckyhouse123 *" >> /etc/ppp/chap-secrets
-echo "carify pptpd forevereedom *" >> /etc/ppp/chap-secrets
+echo "dongxy pptpd yourpasswd *" >> /etc/ppp/chap-secrets
+echo "dongxf pptpd yourpasswd *" >> /etc/ppp/chap-secrets
+echo "x201i pptpd yourpasswd *" >> /etc/ppp/chap-secrets
+echo "carify pptpd yourpasswd *" >> /etc/ppp/chap-secrets
 
 
 echo "[ Change iptables... ]"
