@@ -39,6 +39,8 @@ cp /etc/ppp/pptpd-options $backup_dir/pptpd-options.before
 sed -i 's/^ms-dns /#ms-dns /g' /etc/ppp/pptpd-options
 echo "ms-dns 8.8.8.8" >> /etc/ppp/pptpd-options
 echo "ms-dns 8.8.4.4" >> /etc/ppp/pptpd-options
+# this will elimate some arp checksum error from windows clients
+echo "mppe-stateful" >> /etc/ppp/pptpd-options
 cp /etc/ppp/pptpd-options $backup_dir/pptpd-options.after
 
 echo "[ Generating password for vpn client... ]"
