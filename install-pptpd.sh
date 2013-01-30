@@ -58,7 +58,7 @@ src_ip=`ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '
 #iptables -t nat -A POSTROUTING -s 10.64.64.0/24 -j SNAT --to-source $src_ip
 iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source $src_ip
 iptables -A INPUT -p tcp -m tcp --dport 1723 -j ACCEPT
-iptables -A FORWARD -p tcp --syn -o eth0 -j TCPMSS --set-mss 1356
+iptables -A FORWARD -p tcp --syn -s 10.64.64.0/24 -j TCPMSS --set-mss 1356
 iptables -A INPUT -p gre -j ACCEPT
 iptables-save > $backup_dir/iptables.dump.after
 sed -i 's/:FORWARD DROP/:FORWARD ACCEPT/g' $backup_dir/iptables.dump.after
